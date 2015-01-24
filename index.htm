@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <meta name="viewport" content="width=device-width" />
-<title>QQ77030757卖初始：妈特皮 @2015.01.24</title>
+<title>QQ77030757卖初始：妈特皮 @2015.01.24-2</title>
 <style type='text/css'>
 body { font:12px/1.5 Helvetica,Tahoma,Arial,Sans-serif;background:#fff; }
 table {	width:100%;padding:0;margin:0;border-collapse:collapse;border:2px solid #BDD;}
@@ -462,14 +462,35 @@ var testApp = angular.module('testApp', [])
 	$scope.petAlias = petAlias;
 	$scope.petCombi = petCombi;
 	$scope.searchPets = ['', '', '', ''];
+	$scope.searchBoxChange = function(index) {
+		var needCreate = true;
+		for (var i = index; i < $scope.searchPets.length; i++) {
+			if ($scope.searchPets[i] == '') {
+				needCreate = false;
+				break;
+			}
+		}
+		if (needCreate) {
+			$scope.searchPets.push(''); 
+			if ($scope.searchPets.length % 2 !== 0)
+				$scope.searchPets.push('');
+		}
+	};
 	$scope.search = function() {
 		$location.path('');
 		$scope.searchresults = [];
 		for (var i = $scope.searchPets.length - 1; i >= 0; i--) {
 			$scope.searchPets[i] = $scope.searchPets[i].trim();
-			if ($scope.searchPets[i] == '')
-				continue;
-			$scope.searchPets[i] = petAliasTrans($scope.searchPets[i]);
+			if ($scope.searchPets[i].indexOf(' ') !== -1) {
+				$scope.searchPets = $scope.searchPets.slice(0, i).concat($scope.searchPets[i].split(' '));
+				while ($scope.searchPets.length < 4)
+					$scope.searchPets.push('');
+				$scope.searchBoxChange();
+			}
+		}
+		for (var i = $scope.searchPets.length - 1; i >= 0; i--) {
+			if ($scope.searchPets[i] != '')
+				$scope.searchPets[i] = petAliasTrans($scope.searchPets[i]);
 		}
 		var sortedSearchPets = $scope.searchPets.concat().sort();
 		if (sortedSearchPets.join("").length === 0) {
@@ -515,7 +536,7 @@ var testApp = angular.module('testApp', [])
 </head>
 <body ng-app='testApp' ng-controller='testController'>
 	<form ng-submit="search()">
-		<input type=text class="searchbox" ng-model="searchPets[$index]" ng-repeat="sPet in searchPets track by $index" />
+		<input type=text class="searchbox" ng-model="searchPets[$index]" ng-repeat="sPet in searchPets track by $index" ng-change="searchBoxChange($index)" />
 		<br />
 		<input type=submit value="搜号" />
 		<a ng-click="location.path(location.path()!='/alias'?'/alias':'')" href="javascript:void(0);">别名列表</a>
