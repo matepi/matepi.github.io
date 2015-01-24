@@ -497,7 +497,7 @@ var testApp = angular.module('testApp', [])
 			if (confirm('确认是要显示全部 ' + petarr.length + ' 个号吗？会有点慢的哦。\n\n要搜索的话，就请[取消]后，在前面4个框内输入宠物名。'))
 				$scope.searchresults = petarr;
 			return;
-		} else if (!isNaN($scope.searchPets[0])) {
+		} else if ($scope.searchPets[0] !== '' && !isNaN($scope.searchPets[0])) {
 			for (var i = petarr.length - 1; i >= 0; i--) {
 				if (petarr[i].id == $scope.searchPets[0]) {
 					$scope.searchresults.push(petarr[i]);
