@@ -344,7 +344,10 @@ var petAlias = [
  { real: '火龙男', alias: ['赤龙契士','赤龙','赤龙男','火蛇'] },
  { real: '暗龙男', alias: ['黑龙契士','黑龙','黑龙男','黑狮子'] },
  { real: '白幻魔', alias: ['白兽魔','白魔','白兽','白幻','白狗'] },
- { real: '黑幻魔', alias: ['黑兽魔','黑魔','黑兽','黑幻','黑狗'] }
+ { real: '黑幻魔', alias: ['黑兽魔','黑魔','黑兽','黑幻','黑狗'] },
+ { combi: '红奥大炮队', core:['红奥','红奥'], pets: ['火英雄']},
+ { combi: '暗咖喱队', core:['暗咖喱','暗咖喱'], pets: []},
+ { combi: '白幻魔队', core:['白幻魔','白幻魔'], pets: []}
 ];
 var petAliasTrans = function(before) {
 	for (var j = petAlias.length - 1; j >= 0; j--) {
@@ -436,6 +439,11 @@ if (!Array.isArray) {
 		for (var j = petCombi[i].core.length - 1; j >= 0; j--) {
 			if (!Array.isArray(petCombi[i].core[j])) {
 				petCombi[i].core[j] = " " + petAliasTrans(petCombi[i].core[j]) + " ";
+				while (j > 0 && petCombi[i].core[j].indexOf(" " + petAliasTrans(petCombi[i].core[j - 1]) + " ") !== -1) {
+					petCombi[i].core[j] += (petAliasTrans(petCombi[i].core[j - 1]) + " ");
+					petCombi[i].core.splice(j - 1, 1);
+					j--;
+				}
 			} else {
 				for (var ci = 0; ci < petCombi[i].core[j].length; ci++) {
 					petCombi[i].core[j][ci] = " " + petAliasTrans(petCombi[i].core[j][ci]) + " ";
