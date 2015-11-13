@@ -19,14 +19,14 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 	.searchbox { margin-right: 2px}
 }
 </style>
-<script src="http://7xj3hu.com1.z0.glb.clouddn.com/all.txt?2"></script>
+<script src="all.js"></script>
 </head>
 <body ng-app='testApp' ng-controller='testController'>
 	<title>{{titleMsg}}</title>
 	<form ng-submit="search()">
 		<input type=text class="searchbox" ng-model="searchPets[$index]" ng-repeat="sPet in searchPets track by $index" ng-change="searchBoxChange($index)" />
 		<br />
-		<input type=submit value="搜号" />
+		<input id="btnSearch" type=submit value="搜号" />
 		<a ng-click="location.path(location.path()!='/alias'?'/alias':'')" href="javascript:void(0);">别名列表</a>
 		<a ng-click="location.path(location.path()!='/combi'?'/combi':'')" href="javascript:void(0);">组队列表</a>
 	</form>
@@ -58,8 +58,12 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 				<td>{{onerow.time}}</td>
 				<td class="seqnum">{{onerow.id}}</td>
 				<td>
-					<div>[{{onerow.stone}}石&amp;{{onerow.egg}}蛋龙]&nbsp;{{onerow.linkstr}}</div>
+					<div>{{onerow.linkstr}}</div>
 					<div ng-repeat="onecombi in onerow.combistrs">{{onecombi}}</div>
+					<div title="重复或完全无用可卖宠：{{onerow.sellStr}}">
+						{{onerow.stone}}石&amp;{{onerow.egg}}蛋龙　
+						总pt:{{onerow.sumValue}}
+					</div>
 				</td>
 			</tr>
 		</tbody>
