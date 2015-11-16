@@ -114,8 +114,9 @@ var testApp = angular.module('testApp', [])
 		其他马桶　<input type=text class="chancebox" ng-model="chancePets2[$index]" ng-repeat="sPet in chancePets2 track by $index" ng-change="chanceBoxChange2($index)" />
 		<br />
 		石头数　　<input type=text class="chancebox" ng-model="stoneCount" />
+		<br />
 		试抽次数　<input type=text class="chancebox" ng-model="chanceCount" />
-		<input type=submit value="Chance" />
+		<input type=submit value="试跑一把" />
 	</form>
 	《结果》　<input type=text class="chancebox" ng-model="chanceResult" ng-change="chanceResultChange()"/>%
 	<table style="width:300px">
