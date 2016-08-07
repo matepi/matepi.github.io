@@ -60,9 +60,9 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 				<td>
 					<div>{{onerow.linkstr}}</div>
 					<div ng-repeat="onecombi in onerow.combistrs">{{onecombi}}</div>
-					<div title="重复或完全无用可卖宠：{{onerow.sellStr}}">
-						{{onerow.stone}}石&amp;{{onerow.egg}}蛋龙　5色喇叭={{onerow.lb}}　
-						卖宠后总mp:{{onerow.sumValue}}
+					<div title="重复或完全无用可卖宠：{{onerow.sellStr}}" style="color: #00c">
+						除上述宠物与队伍，此编号【{{onerow.id}}】号内还有有{{onerow.stone}}石&amp;{{onerow.egg}}蛋龙　卖宠后总mp:{{onerow.sumValue}}　
+						&plus;297邮件={{onerow.p297}}封　5色喇叭分别={{onerow.lb}}　5色圣诞龙={{onerow.sd}}
 					</div>
 				</td>
 			</tr>
