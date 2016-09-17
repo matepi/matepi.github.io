@@ -59,6 +59,7 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 				<td class="seqnum">{{onerow.id}}</td>
 				<td>
 					<div>{{onerow.linkstr}}</div>
+					<div>————以上是此号内全部马桶神，共{{onerow.pets.length}}抽，相当于{{onerow.pets.length*5}}石。以下为参考可组队伍————</div>
 					<div ng-repeat="onecombi in onerow.combistrs">{{onecombi}}</div>
 					<div title="重复或完全无用可卖宠：{{onerow.sellStr}}">
 						除上述宠物与队伍，此编号【{{onerow.id}}】号内还有　{{onerow.stone}}石&amp;{{onerow.egg}}蛋龙　卖宠后总mp:{{onerow.sumValue}}　
