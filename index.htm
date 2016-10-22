@@ -18,11 +18,20 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 @media only screen and (min-width : 1024px) {
 	.searchbox { margin-right: 2px}
 }
+.bottombar { background:#EFF;clear:both;position:fixed;z-index:100;bottom:0;left:0;width:100%;margin:0;padding:6px;border:0; font-size:12px; color: #5e666e; text-align:center; }
 </style>
-<script src="http://7xj3hu.com1.z0.glb.clouddn.com/all.txt?2338497xj4"></script>
+<script src="http://7xj3hu.com1.z0.glb.clouddn.com/all.txt?23x234dx"></script>
 </head>
 <body ng-app='testApp' ng-controller='testController'>
 	<title>{{titleMsg}}</title>
+	<p>
+		<p style="font-weight:bolder">使用说明</p>
+		<p>　四个输入框输入需要的搜索的队伍内宠物组合，来进行组队配合搜索。</p>
+		<p>　需要多个的话可输入多遍。</p>
+		<p>　名字不清楚的可以用【：499】这样的输入来搜索，用冒号，后加编号的方式来查，这样：499会自动翻译成暗埃。</p>
+		<p>　同样不清楚中文需要反查编号的也可以【：暗埃】→ 499 </p>
+		<p>　新手不清楚的可以点组队列表和别名列表看看 </p>
+	</p>
 	<form ng-submit="search()">
 		<input type=text class="searchbox" ng-model="searchPets[$index]" ng-repeat="sPet in searchPets track by $index" ng-change="searchBoxChange($index)" />
 		<br />
@@ -69,6 +78,8 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 				</td>
 			</tr>
 		</tbody>
+		<tfoot><tr><td colspan=3 style="font-weight:bolder; color: #5e666e; ">请先【搜号】后，这里才会显示组队内容哦~</td></tr></tfoot>
 	</table>
+	<p class="bottombar">3s...载入完成 最后更新 2016.{{updatedate}} By matepi</p>
 </body>
 </html>
