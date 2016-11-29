@@ -20,7 +20,7 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 }
 .bottombar { background:#EFF;clear:both;position:fixed;z-index:100;bottom:0;left:0;width:100%;margin:0;padding:6px;border:0; font-size:12px; color: #5e666e; text-align:center; }
 </style>
-<script src="http://ofh4cder1.bkt.clouddn.com/all.txt?28095"></script>
+<script src="http://ofh4cder1.bkt.clouddn.com/all.txt?26858"></script>
 </head>
 <body ng-app='testApp' ng-controller='testController'>
 	<title>QQ77030757 初始：妈特皮</title>
@@ -36,8 +36,8 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 		<input type=text class="searchbox" ng-model="searchPets[$index]" ng-repeat="sPet in searchPets track by $index" ng-change="searchBoxChange($index)" />
 		<br />
 		<input id="btnSearch" type=submit value="搜号" />
-		<a ng-click="location.path(location.path()!='/alias'?'/alias':'')" href="javascript:void(0);">别名列表</a>
 		<a ng-click="location.path(location.path()!='/combi'?'/combi':'')" href="javascript:void(0);">组队列表</a>
+		<a ng-click="location.path(location.path()!='/alias'?'/alias':'')" href="javascript:void(0);">别名列表</a>
 	</form>
 	<table ng-show="location.path()=='/alias'">
 		<thead><tr><th style="width:90px">正名</th><th>别名</th></tr></thead>
@@ -71,8 +71,8 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 					<div>————以上是此号BOX={{onerow.box}}。内含马桶神{{onerow.pets.length}}个。————</div>
 					<div>————以下为参考可组队伍————</div>
 					<div ng-repeat="onecombi in onerow.combistrs">{{onecombi}}</div>
-					<div title="重复或完全无用可卖宠：{{onerow.sellStr}}">
-						除上述宠物与队伍，此编号【{{onerow.id}}】号内还有　{{onerow.stone}}石&amp;{{onerow.egg}}蛋龙　卖宠后总mp:{{onerow.sumValue}}　
+					<div title="重复或完全无用可出宠：{{onerow.sellStr}}">
+						除上述宠物与队伍，此编号【{{onerow.id}}】号内还有　{{onerow.stone}}石&amp;{{onerow.egg}}蛋龙　出宠后总mp:{{onerow.sumValue}}　
 						&plus;297邮件={{onerow.p297}}封　5色喇叭分别={{onerow.lb}}　5色圣诞龙={{onerow.sd}}
 					</div>
 				</td>
