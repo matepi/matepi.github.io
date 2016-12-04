@@ -20,7 +20,7 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 }
 .bottombar { background:#EFF;clear:both;position:fixed;z-index:100;bottom:0;left:0;width:100%;margin:0;padding:6px;border:0; font-size:12px; color: #5e666e; text-align:center; }
 </style>
-<script src="http://ofh4cder1.bkt.clouddn.com/all.txt?17300"></script>
+<script src="http://ofh4cder1.bkt.clouddn.com/all.txt?18124"></script>
 </head>
 <body ng-app='testApp' ng-controller='testController'>
 	<title>QQ77030757 初始：妈特皮</title>
@@ -72,7 +72,7 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 					<div>————以下为参考可组队伍————</div>
 					<div ng-repeat="onecombi in onerow.combistrs">{{onecombi}}</div>
 					<div title="重复或完全无用可出宠：{{onerow.sellStr}}">
-						除上述宠物与队伍，此编号【{{onerow.id}}】号内还有　{{onerow.stone}}石&amp;{{onerow.egg}}蛋龙　出宠后总mp:{{onerow.sumValue}}　
+						除上述宠物与队伍，此编号【{{onerow.id}}】号内还有　{{onerow.stone}}石&amp;{{onerow.egg}}蛋龙　出宠后总mp:{{onerow.sumValue}}　<span ng-show="onerow.mp>0">此外已领mp:{{onerow.mp}}万　</span>
 						&plus;297邮件={{onerow.p297}}封　5色喇叭分别={{onerow.lb}}　5色圣诞龙={{onerow.sd}}
 					</div>
 				</td>
