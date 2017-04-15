@@ -21,7 +21,6 @@ button { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1
 }
 .bottombar { background:#EFF;clear:both;position:fixed;z-index:100;bottom:0;left:0;width:100%;margin:0;padding:6px;border:0; font-size:12px; color: #5e666e; text-align:center; }
 </style>
-<script src="http://ofh4cder1.bkt.clouddn.com/all.txt?19858"></script>
 </head>
 <body ng-app='testApp' ng-controller='testController'>
 	<title>QQ77030757 初始：妈特皮</title>
@@ -54,8 +53,8 @@ button { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1
 		<thead><tr><th style="width:90px">正名</th><th>别名</th></tr></thead>
 		<tbody>
 			<tr ng-class-even="'alt'" ng-repeat="onerow in petAlias">
-				<td>{{onerow.real}}</td>
-				<td><span ng-repeat="onealias in onerow.alias">{{onealias}}&nbsp;</span></td>
+				<td ng-bind="onerow.real"></td>
+				<td><span ng-repeat="onealias in onerow.alias" ng-bind="onealias+' '"></span></td>
 			</tr>
 		</tbody>
 	</table>
@@ -63,11 +62,11 @@ button { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1
 		<thead><tr><th style="width:58px">队名</th><th style="width:74px">必须队员</th><th>一般队员</th></tr></thead>
 		<tbody>
 			<tr ng-class-even="'alt'" ng-repeat="onerow in petCombi">
-				<td>{{onerow.combi}}</td>
+				<td ng-bind="onerow.combi"></td>
 				<td>
-					<span ng-repeat="onecore in onerow.core">{{ showStrAndArr(onecore) }}</span>
+					<span ng-repeat="onecore in onerow.core" ng-bind=" showStrAndArr(onecore) "></span>
 				</td>
-				<td><span ng-repeat="onepet in onerow.pets">{{onepet.replace(' ', '')}}</span></td>
+				<td><span ng-repeat="onepet in onerow.pets" ng-bind="onepet.replace(' ', '')"></span></td>
 			</tr>
 		</tbody>
 	</table>
@@ -75,22 +74,20 @@ button { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1
 		<thead><tr><th style="width:62px"></th><th nowrap>编号</th><th>内容</th></tr></thead>
 		<tbody>
 			<tr ng-class-even="'alt'" ng-repeat="onerow in searchresults">
-				<td>{{onerow.time}}</td>
-				<td class="seqnum">{{onerow.id}}</td>
+				<td ng-bind="onerow.time"></td>
+				<td class="seqnum" ng-bind="onerow.id"></td>
 				<td>
-					<div>{{onerow.linkstr}}</div>
-					<div>————以上是此号BOX={{onerow.box}}。内含马桶神{{onerow.pets.length}}个。————</div>
-					<div>————以下为参考可组队伍————</div>
-					<div ng-repeat="onecombi in onerow.combistrs">{{onecombi}}</div>
-					<div title="重复或完全无用可出宠：{{onerow.sellStr}}">
-						除上述宠物与队伍，此编号【{{onerow.id}}】号内还有　{{onerow.stone}}石&amp;{{onerow.egg}}蛋龙　出宠后总mp:{{onerow.sumValue}}　<span ng-show="onerow.mp>0">此外已领mp:{{onerow.mp}}万　</span>
-						&plus;297邮件={{onerow.p297}}封　5色喇叭分别={{onerow.lb}}　5色圣诞龙={{onerow.sd}}
-					</div>
+					<div ng-bind="onerow.linkstr"></div>
+					<div ng-bind="'————以上是此号BOX=' + onerow.box + '。内含马桶神' + onerow.pets.length + '个。————'"></div>
+					<div ng-bind="'————以下为参考可组队伍————'">数据载入中……稍等半分钟……载入完才可搜号，不会用的请点【图片说明】</div>
+					<div ng-repeat="onecombi in onerow.combistrs" ng-bind="onecombi"></div>
+					<div title="重复或完全无用可出宠：{{onerow.sellStr}}" ng-bind="'除上述宠物与队伍，此编号【'+onerow.id+'】号内还有　'+onerow.stone+'石&amp;'+onerow.egg+'蛋龙' + (onerow.mp>0 ? ('　活动已领mp:'+onerow.mp+'万') : '　')+ '　出宠后总mp:'+onerow.sumValue+ '　&plus;297邮件='+onerow.p297+'封　5色喇叭分别='+onerow.lb+'　5色圣诞龙='+onerow.sd"></div>
 				</td>
 			</tr>
 		</tbody>
-		<tfoot><tr><td colspan=3 style="font-weight:bolder; color: #5e666e; ">请先【搜号】后，这里才会显示组队内容哦~</td></tr></tfoot>
+		<tfoot><tr><td colspan=3 style="font-weight:bolder; color: #5e666e; ">请先【搜号】后，这里才会显示组队内容哦~　不会用的请点【图片说明】~</td></tr></tfoot>
 	</table>
-	<p class="bottombar">最后更新 2017.{{updatedate}} By 妈特皮 QQ 77030757</p>
+	<p class="bottombar" ng-bind="'最后更新 2017.'+updatedate+' By 妈特皮 QQ 77030757'">载入中……稍等半分钟……</p>
+	<script src="http://ofh4cder1.bkt.clouddn.com/all.txt?30536"></script>
 </body>
 </html>
