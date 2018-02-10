@@ -31,7 +31,7 @@ button { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1
 		<p>　需要多个的话可输入多遍。</p>
 		<p>　名字不清楚的可以用【：499】这样的输入来搜索，用冒号，后加编号的方式来查，这样：499会自动翻译成暗埃。</p>
 		<p>　同样不清楚中文需要反查编号的也可以【：暗埃】→ 499 </p>
-		<p>　还不清楚的可以点【使用说明】看图片说明 </p>
+		<p>　还不清楚的可以点 使用说明 看图片说明 </p>
 	</p>
 	<form ng-submit="search()">
 		<input type=text class="searchbox" ng-model="searchPets[$index]" ng-repeat="sPet in searchPets track by $index" ng-change="searchBoxChange($index)" />
