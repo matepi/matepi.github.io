@@ -39,6 +39,8 @@ button { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1
 		<input id="btnSearch" type=submit value="搜号" />
 		<a ng-click="location.path(location.path()!='/combi'?'/combi':'')" href="javascript:void(0);">组队列表</a>
 		<a ng-click="location.path(location.path()!='/alias'?'/alias':'')" href="javascript:void(0);">别名列表</a>
+		<button ng-click="searchPets=['船长','','','']">晴空號船長、尤依菈</button>
+		<button ng-click="searchPets=['美杜莎','','','']">隱密客瓦絲卡(美杜莎)</button>
 		<button ng-click="searchPets=['水大魔女','','','']">水大魔女莉邪</button>
 		<button ng-click="searchPets=['火大魔女','','','']">火大魔女瑪杜</button>
 		<button ng-click="searchPets=['木大魔女','','','']">木大魔女泽娜</button>
@@ -104,7 +106,7 @@ button { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1
 		<tfoot><tr><td colspan=3 style="font-weight:bolder; color: #5e666e; ">请先【搜号】后，这里才会显示组队内容哦~　不会用的请点【图片说明】~</td></tr></tfoot>
 	</table>
 	<p class="bottombar" ng-bind="'最后更新 2018.'+updatedate+' By 妈特皮 QQ 77030757'">载入中……稍等半分钟……</p>
-	<script src="http://ofh4cder1.bkt.clouddn.com/all.txt?7265"></script>
+	<script src="http://ofh4cder1.bkt.clouddn.com/all.txt?5331"></script>
 	<script src="http://ofh4cder1.bkt.clouddn.com/app.txt"></script>
 </body>
 </html>
