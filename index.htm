@@ -7,69 +7,57 @@
 body { font:12px/1.5 Helvetica,Tahoma,Arial,Sans-serif;background:#fff; }
 table {	width:100%;padding:0;margin:0;border-collapse:collapse;border:2px solid #BDD;}
 th { color:#567;background:#DEE;border:1px solid #CDD;text-align:middle;padding:4px; }
-td { border:1px solid #CEE;padding:1px; }
+td { border:1px solid #CEE;padding:1px 2px 1px 6px }
 tr { background:#fff; }
 tr.alt { background:#EFF; }
 .seqnum { text-align:center;font-weight:bolder;color:#F00; }
 input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1px}
-button { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1px}
+button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5px;padding:1px 6px;border-style:solid; border-width:1px; border-color:#888;background:linear-gradient(to top, #DDD, #FFF);}
 @media only screen and (max-width : 1023px) {
 	.searchbox { width: 40%; margin-right: 10px }
 }
 @media only screen and (min-width : 1024px) {
 	.searchbox { margin-right: 2px}
 }
+.tablenobo { border:0;height:0; }
+.tablenobo td { border:0; }
+.tablenobo tr { border:0; }
+.btnsearchtd { display: block;height:100%;min-width:42px }
+#btnSearch { display:inline-block;width:100%;height:100%;padding:0;margin:0;}
 .bottombar { background:#EFF;clear:both;position:fixed;z-index:100;bottom:0;left:0;width:100%;margin:0;padding:6px;border:0; font-size:12px; color: #5e666e; text-align:center; }
 </style>
 </head>
 <body ng-app='testApp' ng-controller='testController'>
 	<title>QQ77030757 初始：妈特皮</title>
 	<div id=imgdiv style='display:none;'></div>
-	<p>
-		<p style="font-weight:bolder">使用说明 <button onclick='if (imgdiv.style.display=="none") { if(imgdiv.children.length===0) {var image = document.createElement("img");imgdiv.appendChild(image);image.src="http://ofh4cder1.bkt.clouddn.com/u6.png";image.style="height:auto;width:auto;max-width:100%;max-height:100%";image.onclick=function(){imgdiv.style.cssText="display:none;"};}imgdiv.style.cssText="display:block;" } else {imgdiv.style.cssText="display:none"}'>图片说明</button></p>
-		<p>　四个输入框输入需要的搜索的队伍内宠物组合，来进行组队配合搜索。</p>
-		<p>　需要多个的话可输入多遍。</p>
-		<p>　名字不清楚的可以用【：499】这样的输入来搜索，用冒号，后加编号的方式来查，这样：499会自动翻译成暗埃。</p>
-		<p>　同样不清楚中文需要反查编号的也可以【：暗埃】→ 499 </p>
-		<p>　还不清楚的可以点 使用说明 看图片说明 </p>
-	</p>
+	<p style="font-weight:bolder">使用说明 <button onclick='if (imgdiv.style.display=="none") { if(imgdiv.children.length===0) {var image = document.createElement("img");imgdiv.appendChild(image);image.src="http://ofh4cder1.bkt.clouddn.com/u6.png";image.style="height:auto;width:auto;max-width:100%;max-height:100%";image.onclick=function(){imgdiv.style.cssText="display:none;"};}imgdiv.style.cssText="display:block;" } else {imgdiv.style.cssText="display:none"}'>图片说明</button></p>
+	<p>　四个输入框输入要搜索的宠物名组合，来进行号内宠物组队配合组合搜索。</p>
+	<p>　需要重复同一宠的话可多个框内输入重复的同一个宠物名。</p>
+	<p>　宠物名不清楚的可以用【：499】这样的输入来搜索，用冒号，后加宠物编号的方式来查，这样：499会自动翻译成暗埃。</p>
+	<p>　不清楚中文名对应宠物，也可以反查编号【：暗埃】→ 499 </p>
+	<p>　还不清楚的可以点 使用说明 看图片说明 </p>
 	<form ng-submit="search()">
-		<input type=text class="searchbox" ng-model="searchPets[$index]" ng-repeat="sPet in searchPets track by $index" ng-change="searchBoxChange($index)" />
-		<br />
-		<input id="btnSearch" type=submit value="搜号" />
+		<table class="tablenobo"><tr>
+          <td class="btnsearchtd"><button id="btnSearch" type=submit>搜号</button></td>
+			<td><input type=text class="searchbox" ng-model="searchPets[$index]" ng-repeat="sPet in searchPets track by $index" ng-change="searchBoxChange($index)" /></td>
+		</tr></table>
 		<a ng-click="location.path(location.path()!='/combi'?'/combi':'')" href="javascript:void(0);">组队列表</a>
 		<a ng-click="location.path(location.path()!='/alias'?'/alias':'')" href="javascript:void(0);">别名列表</a>
-		<button ng-click="searchPets=['万圣玩龙唤士','','','']">万圣玩龙</button>
+		<button ng-click="searchPets=['芭芭拉＆朱莉','','','']">芭芭拉＆朱莉(泳装眼镜泳装双子)</button>
 		<button ng-click="searchPets=['黑莓','神爹','','']">黑莓+神爹(執行者+皇祖神)触发队</button>
 		<button ng-click="searchPets=['灵央神','','','']">灵央神(產靈尊,暗央)</button>
 		<button ng-click="searchPets=['天央神','','','']">天央神(天之御中主神,水央)</button>
-		<button ng-click="searchPets=['天央神','岚龙','','']">天央+岚龙队</button>
-		<button ng-click="searchPets=['水光克','','','']">水光克(泳装光克)</button>
-		<button ng-click="searchPets=['芭芭拉＆朱莉','','','']">芭芭拉＆朱莉(泳装眼镜)</button>
-		<button ng-click="searchPets=['不知火舞','','','']">不知火舞</button>
-		<button ng-click="searchPets=['船长','','','']">晴空號船長、尤依菈</button>
 		<button ng-click="searchPets=['美杜莎','','','']">隱密客瓦絲卡(美杜莎)</button>
 		<button ng-click="searchPets=['水大魔女','','','']">水大魔女莉邪</button>
 		<button ng-click="searchPets=['水大魔女','','','']">水大魔女莉邪</button>
 		<button ng-click="searchPets=['火大魔女','','','']">火大魔女瑪杜</button>
 		<button ng-click="searchPets=['木大魔女','','','']">木大魔女泽娜</button>
-		<button ng-click="searchPets=['幽助','','','']">浦饭幽助</button>
 		<button ng-click="searchPets=['爱德华','','','']">钢炼爱德华</button>
-		<button ng-click="searchPets=['彩龙唤士','','','']">彩龙唤士</button>
-		<button ng-click="searchPets=['幕之内一步','','','']">幕之内一步</button>
-		<button ng-click="searchPets=['回想时女神','','','']">回想时女神(暗时女)</button>
-		<button ng-click="searchPets=['神威','','','']">神威</button>
-		<button ng-click="searchPets=['坂田银时','','','']">坂田銀時</button>
-		<button ng-click="searchPets=['情人节零龙唤士','','','']">情人节零龙唤士</button>
 		<button ng-click="searchPets=['鏖魔','','','']">鏖魔(角龍)</button>
 		<button ng-click="searchPets=['岚龙','','','']">岚龙</button>
-		<button ng-click="searchPets=['金雷公','','','']">金雷公</button>
 		<button ng-click="searchPets=['光克苏鲁','','','']">光克苏鲁（優格）</button>
 		<button ng-click="searchPets=['零龙唤士','','','']">零龙唤士</button>
 		<button ng-click="searchPets=['玩龙唤士']">玩龍喚士・棉花</button>
-		<button ng-click="searchPets=['稻田','白虎','白虎','白虎','','']">稻田3白虎</button>
-		<button ng-click="searchPets=['木龙眼镜妹','','','']">眼镜妹（静杖の龍機博士・ジュリ）</button>
-		<button ng-click="searchPets=['白虎','新暗印','','']">暗雅点这里</button>
 	</form>
 	<table ng-show="location.path()=='/alias'">
 		<thead><tr><th style="width:90px">正名</th><th>别名</th></tr></thead>
@@ -93,11 +81,11 @@ button { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1
 		</tbody>
 	</table>
 	<table>
-		<thead><tr><th style="width:62px"></th><th nowrap>编号</th><th>内容</th></tr></thead>
+		<thead><tr><th style="width:62px;display:none"></th><th nowrap style="width:46px;">编号</th><th>内容</th></tr></thead>
 		<tbody>
 			<tr ng-class-even="'alt'" ng-repeat="onerow in searchresults">
-				<td ng-bind="onerow.time"></td>
-				<td class="seqnum" ng-bind="onerow.id"></td>
+				<td ng-bind="onerow.time" style="width:62px;display:none"></td>
+				<td class="seqnum" ng-bind="onerow.id" style="width:46px;"></td>
 				<td>
 					<div ng-bind="onerow.linkstr"></div>
 					<div ng-bind="'————以上是此号BOX=' + onerow.box + '。内含神' + onerow.pets.length + '个。————'"></div>
@@ -107,10 +95,10 @@ button { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1
 				</td>
 			</tr>
 		</tbody>
-		<tfoot><tr><td colspan=3 style="font-weight:bolder; color: #5e666e; ">请先【搜号】后，这里才会显示组队内容哦~　不会用的请点【图片说明】~</td></tr></tfoot>
-	</table>
+		<tfoot><tr><td colspan=3 style="font-weight:bolder; color: #5e666e; ">请先【搜号】这里才会显示组队内容哦～不会用看【图片说明】～</td></tr></tfoot>
+	</table><br/>
 	<p class="bottombar" ng-bind="'最后更新 2018.'+updatedate+' By 妈特皮 QQ 77030757'">载入中……稍等半分钟……</p>
-	<script src="http://ofh4cder1.bkt.clouddn.com/all.txt?8193"></script>
-	<script src="http://ofh4cder1.bkt.clouddn.com/app.txt"></script>
+	<script src="all.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>
