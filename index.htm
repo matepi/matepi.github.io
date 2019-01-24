@@ -30,7 +30,7 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 <body ng-app='testApp' ng-controller='testController'>
 	<title>QQ77030757 初始：妈特皮</title>
 	<div id=imgdiv style='display:none;'></div>
-	<p style="font-weight:bolder">使用说明 <button onclick='if (imgdiv.style.display=="none") { if(imgdiv.children.length===0) {var image = document.createElement("img");imgdiv.appendChild(image);image.src="http://ofh4cder1.bkt.clouddn.com/u6.png";image.style="height:auto;width:auto;max-width:100%;max-height:100%";image.onclick=function(){imgdiv.style.cssText="display:none;"};}imgdiv.style.cssText="display:block;" } else {imgdiv.style.cssText="display:none"}'>图片说明</button></p>
+	<p style="font-weight:bolder">使用说明 <button onclick='if (imgdiv.style.display=="none") { if(imgdiv.children.length===0) {var image = document.createElement("img");imgdiv.appendChild(image);image.src="u6.png";image.style="height:auto;width:auto;max-width:100%;max-height:100%";image.onclick=function(){imgdiv.style.cssText="display:none;"};}imgdiv.style.cssText="display:block;" } else {imgdiv.style.cssText="display:none"}'>图片说明</button></p>
 	<p>　四个输入框输入要搜索的宠物名组合，来进行号内宠物组队配合组合搜索。</p>
 	<p>　需要重复同一宠的话可多个框内输入重复的同一个宠物名。</p>
 	<p>　宠物名不清楚的可以用【：499】这样的输入来搜索，用冒号，后加宠物编号的方式来查，这样：499会自动翻译成暗埃。</p>
@@ -43,21 +43,26 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 		</tr></table>
 		<a ng-click="location.path(location.path()!='/combi'?'/combi':'')" href="javascript:void(0);">组队列表</a>
 		<a ng-click="location.path(location.path()!='/alias'?'/alias':'')" href="javascript:void(0);">别名列表</a>
+		<button ng-click="searchPets=['哥玛先生','','','']">哥玛先生(怪物木喵)</button>
+		<button ng-click="searchPets=['黑莓','','','']">黑莓(極醒之執行者・米達倫)</button>
 		<button ng-click="searchPets=['芭芭拉＆朱莉','','','']">芭芭拉＆朱莉(泳装眼镜泳装双子)</button>
-		<button ng-click="searchPets=['黑莓','神爹','','']">黑莓+神爹(執行者+皇祖神)触发队</button>
-		<button ng-click="searchPets=['灵央神','','','']">灵央神(產靈尊,暗央)</button>
-		<button ng-click="searchPets=['天央神','','','']">天央神(天之御中主神,水央)</button>
-		<button ng-click="searchPets=['美杜莎','','','']">隱密客瓦絲卡(美杜莎)</button>
-		<button ng-click="searchPets=['水大魔女','','','']">水大魔女莉邪</button>
 		<button ng-click="searchPets=['水大魔女','','','']">水大魔女莉邪</button>
 		<button ng-click="searchPets=['火大魔女','','','']">火大魔女瑪杜</button>
 		<button ng-click="searchPets=['木大魔女','','','']">木大魔女泽娜</button>
+		<button ng-click="searchPets=['光克苏鲁','','','']">光克苏鲁（優格）</button>
+		<button ng-click="searchPets=['桐人','','','']">桐人</button>
+		<button ng-click="searchPets=['亚丝娜','','','']">亚丝娜</button>
+		<button ng-click="searchPets=['诗音','','','']">诗音</button>
+		<button ng-click="searchPets=['黑莓','神爹','','']">黑莓+神爹(執行者+皇祖神)触发队</button>
+		<button ng-click="searchPets=['黑莓','暗天','','']">黑莓+暗天(執行者+暗天使路西法)队</button>
+		<button ng-click="searchPets=['零龙唤士','','','']">零龙唤士</button>
+		<button ng-click="searchPets=['玩龙唤士']">玩龍喚士・棉花</button>
+		<button ng-click="searchPets=['灵央神','','','']">灵央神(產靈尊,暗央)</button>
+		<button ng-click="searchPets=['天央神','','','']">天央神(天之御中主神,水央)</button>
+		<button ng-click="searchPets=['美杜莎','','','']">隱密客瓦絲卡(美杜莎)</button>
 		<button ng-click="searchPets=['爱德华','','','']">钢炼爱德华</button>
 		<button ng-click="searchPets=['鏖魔','','','']">鏖魔(角龍)</button>
 		<button ng-click="searchPets=['岚龙','','','']">岚龙</button>
-		<button ng-click="searchPets=['光克苏鲁','','','']">光克苏鲁（優格）</button>
-		<button ng-click="searchPets=['零龙唤士','','','']">零龙唤士</button>
-		<button ng-click="searchPets=['玩龙唤士']">玩龍喚士・棉花</button>
 	</form>
 	<table ng-show="location.path()=='/alias'">
 		<thead><tr><th style="width:90px">正名</th><th>别名</th></tr></thead>
@@ -91,13 +96,13 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 					<div ng-bind="'————以上是此号BOX=' + onerow.box + '。内含神' + onerow.pets.length + '个。————'"></div>
 					<div ng-bind="'————以下为参考可组队伍————'">数据载入中……稍等半分钟……载入完才可搜号，不会用的请点【图片说明】</div>
 					<div ng-repeat="onecombi in onerow.combistrs" ng-bind="onecombi"></div>
-					<div title="重复或完全无用可出宠：{{onerow.sellStr}}" ng-bind="'除上述' + onerow.pets.length + '个宠物以及队伍，此编号【'+onerow.id+'】号内还有　'+onerow.stone+'石&amp;'+onerow.egg+'蛋龙' + (onerow.mp>0 ? ('　活动已领mp:'+onerow.mp+'万') : '　')+ '　出宠后总mp:'+onerow.sumValue+'　可用&plus;蛋折算='+onerow.plp+'个297　5色喇叭分别='+onerow.lb+'　5色圣诞龙='+onerow.sd"></div>
+					<div title="重复或完全无用可出宠：{{onerow.sellStr}}" ng-bind="'除上述' + onerow.pets.length + '个宠物以及队伍，此编号【'+onerow.id+'】号内还有　'+onerow.stone+'石&amp;'+onerow.egg+'蛋龙' + (onerow.mp>0 ? ('　活动mp:'+onerow.mp+'万') : '　')+ '　出宠后总mp:'+onerow.sumValue+ '　神&plus;蛋合计='+onerow.p297+ '个297　自由&plus;蛋='+onerow.plp+'个297　5色喇叭分别='+onerow.lb+'　5色圣诞龙='+onerow.sd"></div>
 				</td>
 			</tr>
 		</tbody>
 		<tfoot><tr><td colspan=3 style="font-weight:bolder; color: #5e666e; ">请先【搜号】这里才会显示组队内容哦～不会用看【图片说明】～</td></tr></tfoot>
 	</table><br/>
-	<p class="bottombar" ng-bind="'最后更新 2018.'+updatedate+' By 妈特皮 QQ 77030757'">载入中……稍等半分钟……</p>
+	<p class="bottombar" ng-bind="'最后更新 2019.'+updatedate+' By 妈特皮 QQ 77030757'">载入中……稍等半分钟……</p>
 	<script src="all.js"></script>
 	<script src="app.js"></script>
 </body>
