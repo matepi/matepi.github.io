@@ -76,7 +76,7 @@ if (!Array.prototype.removeDuplicates) {
 		var sellSumValue = 0;
 		var sellStr = "";
 		var sumValue = 0;
-		for (var k = 0; k < sortedpetarr.length - 1; k++) {
+		for (var k = 0; k < sortedpetarr.length; k++) {
 			sumValue += nvrMap[sortedpetarr[k]].value;
 			if (nvrMap[sortedpetarr[k]].value < 100)
 				continue;
