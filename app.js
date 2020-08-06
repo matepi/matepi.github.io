@@ -123,6 +123,8 @@ if (!Array.prototype.removeDuplicates) {
 				oneCombiStr = "[75wpt暗雅队（已有" + petarr[i].mp + "w MP暗雅可直接购买）]：";
 			} else if (petarr[i].mp >= 75 && testCombi.combi == "75wpt雷歐‧布魯姆菲爾德队（已有39w MP雷欧需卖宠购买）") {
 				oneCombiStr = "[75wpt雷歐‧布魯姆菲爾德队（已有" + petarr[i].mp + "w MP雷欧可直接购买））]：";
+			} else if (petarr[i].mp >= 30 && testCombi.combi == "30wpt拉鸡队（已有39w MP拉鸡需卖宠购买）") {
+				oneCombiStr = "[30wpt拉鸡队（已有" + petarr[i].mp + "w MP拉鸡可直接购买））]：";
 			} else {
 				oneCombiStr = "[" + (mpPos !== -1 ? (testCombi.combi.substr(0, mpPos) + petarr[i].mp + "w" + testCombi.combi.substr(mpPos + "39w".length)) : testCombi.combi) + "]：";
 			}
