@@ -101,6 +101,7 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 				<td ng-bind="onerow.time" style="width:62px;display:none"></td>
 				<td class="seqnum" ng-bind="onerow.id" style="width:46px;"></td>
 				<td>
+					<div ng-bind="'此编号【'+onerow.id+'】号内还有　'+onerow.stone+'石'"></div>
 					<div ng-bind="onerow.linkstr"></div>
 					<div ng-bind="'————以上是此号BOX=' + onerow.box + '。内含神' + onerow.pets.length + '个。————'"></div>
 					<div ng-bind="'————以下为参考可组队伍————'">数据载入中……稍等半分钟……载入完才可搜号，不会用的请点【图片说明】</div>
@@ -112,7 +113,7 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 		<tfoot><tr><td colspan=3 style="font-weight:bolder; color: #5e666e; ">请先【搜号】这里才会显示组队内容哦～不会用看【图片说明】～</td></tr></tfoot>
 	</table><br/>
 	<p class="bottombar" ng-bind="'最后更新 2020.'+updatedate+' By 妈特皮 QQ 77030757'">载入中……稍等半分钟……</p>
-	<script src="https://info.263.info:263/689ca999a43a517751b0565afbe06d5f"></script>
+	<script src="https://info.263.info:263/c7ed090f0d97944503531e26a18317fa"></script>
 	<script src="app.js"></script>
 </body>
 </html>
