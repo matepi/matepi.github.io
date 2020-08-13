@@ -44,14 +44,10 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 		</tr></table>
 		<a ng-click="location.path(location.path()!='/combi'?'/combi':'')" href="javascript:void(0);">组队列表</a>
 		<a ng-click="location.path(location.path()!='/alias'?'/alias':'')" href="javascript:void(0);">别名列表</a>
-		<button ng-click="searchPets=['哥玛先生','','','']">哥玛先生(怪物木喵)</button>
 		<button ng-click="searchPets=['Saber','','','']">Saber</button>
 		<button ng-click="searchPets=['士郎','','','']">衛宮士郎</button>
 		<button ng-click="searchPets=['远坂凛','','','']">遠坂凛</button>
 		<button ng-click="searchPets=['黑莓','','','']">黑莓(極醒之執行者・米達倫)</button>
-		<button ng-click="searchPets=['水大魔女','','','']">水大魔女莉邪</button>
-		<button ng-click="searchPets=['火大魔女','','','']">火大魔女瑪杜</button>
-		<button ng-click="searchPets=['木大魔女','','','']">木大魔女泽娜</button>
 		<button ng-click="searchPets=['神道花梨','','','']">神道花梨</button>
 		<button ng-click="searchPets=['海灘的大魔女彼羅雅','','','']">海灘的大魔女彼羅雅(泳装暗魔女)</button>
 		<button ng-click="searchPets=['光克苏鲁','','','']">光克苏鲁（優格）</button>
@@ -59,9 +55,7 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 		<button ng-click="searchPets=['亚丝娜','','','']">亚丝娜</button>
 		<button ng-click="searchPets=['黑莓','神爹','','']">黑莓+神爹(執行者+皇祖神)触发队</button>
 		<button ng-click="searchPets=['黑莓','暗天','','']">黑莓+暗天(執行者+暗天使路西法)队</button>
-		<button ng-click="searchPets=['玩龙唤士']">玩龍喚士・棉花</button>
 		<button ng-click="searchPets=['幽助','','','']">浦饭幽助</button>
-		<button ng-click="searchPets=['鏖魔','','','']">鏖魔(角龍)</button>
 		<button ng-click="searchPets=['彩龙','','','']">彩龙</button>
 		<button ng-click="searchPets=['大魔女HelloKitty(木)','','','']">木魔女Kitty</button>
 		<button ng-click="searchPets=['龍刀宙天丸','','','']">暗龙刀</button>
@@ -72,6 +66,11 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 		<button ng-click="searchPets=['森奥之大魔女阿爾榭','','','']">新木魔女</button>
 		<button ng-click="searchPets=['雲外之大魔女花絲卡','','','']">新光魔女</button>
 		<button ng-click="searchPets=['鏡室之大魔女寧娘','','','']">新暗魔女</button>
+		<button ng-click="searchPets=['炎之鑰匙繼承者格倫','','','']">火匙勇者</button>
+		<button ng-click="searchPets=['冰之鑰匙繼承者米妮特','','','']">水匙勇者</button>
+		<button ng-click="searchPets=['森之鑰匙繼承者安琳娜','','','']">木匙勇者</button>
+		<button ng-click="searchPets=['星之鑰匙繼承者費魯魯','','','']">光匙勇者</button>
+		<button ng-click="searchPets=['月之鑰匙繼承者尤克斯','','','']">暗匙勇者</button>
 	</form>
 	<table ng-show="location.path()=='/alias'">
 		<thead><tr><th style="width:90px">正名</th><th>别名</th></tr></thead>
