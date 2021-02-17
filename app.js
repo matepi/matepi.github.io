@@ -1,4 +1,4 @@
-if (!String.prototype.trim) {
+﻿if (!String.prototype.trim) {
 	String.prototype.trim = function() {
 		return this.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 	};
@@ -64,6 +64,8 @@ if (!Array.prototype.removeDuplicates) {
 	for (var i = petarr.length - 1; i >= 0; i--) {
 		// linkstr
 		petarr[i].linkstr = petarr[i].pets.join(" ");
+		if (petarr[i].id == 7980)
+			petarr[i].linkstr = "【请注意此号稍有进度，已过索尼娅篇并领石。此外大部分地下城都没过。3月19日前只能048】" + petarr[i].linkstr;
 		// searchstr
 		var sortedpetarr = petarr[i].pets.concat().sort();
 		for (var k = 0; k < sortedpetarr.length; k++) {
