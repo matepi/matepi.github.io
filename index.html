@@ -117,7 +117,7 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 					<div ng-bind="'此编号【'+onerow.id+'】号内还有　'+onerow.stone+'石'"></div>
 					<div ng-bind="onerow.linkstr"></div>
 					<div ng-bind="'————以上是此号BOX=' + onerow.box + '。内含神' + onerow.pets.length + '个。————'"></div>
-					<div ng-bind="'————以下为参考可组队伍————'">数据载入中……稍等半分钟……载入完才可搜号，不会用的请点【图片说明】</div>
+					<div ng-bind="'————以下为参考可组队伍————'">数据载入中……稍等2分钟……载入完才可搜号，不会用的请点【图片说明】</div>
 					<div ng-repeat="onecombi in onerow.combistrs" ng-bind="onecombi"></div>
 					<div title="重复或完全无用可出宠：{{onerow.sellStr}}" ng-bind="'除上述' + onerow.pets.length + '个宠物以及队伍，此编号【'+onerow.id+'】号内还有　'+onerow.stone+'石&amp;'+onerow.egg+'蛋龙' + (onerow.mp>0 ? ('　活动mp:'+onerow.mp+'万') : '　')+ '　出宠后总mp:'+onerow.sumValue+ '　神&plus;蛋合计='+onerow.p297+ '个297　自由&plus;蛋='+onerow.plp+'个297　5色喇叭分别='+onerow.lb+'　5色圣诞龙='+onerow.sd"></div>
 				</td>
@@ -125,7 +125,7 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 		</tbody>
 		<tfoot><tr><td colspan=3 style="font-weight:bolder; color: #5e666e; ">请先【搜号】这里才会显示组队内容哦～不会用看【图片说明】～</td></tr></tfoot>
 	</table><br/>
-	<p class="bottombar" ng-bind="'最后更新 2023.'+updatedate+' By 妈特皮 QQ 77030757'">载入中……稍等半分钟……</p>
+	<p class="bottombar" ng-bind="'最后更新 2023.'+updatedate+' By 妈特皮 QQ 77030757'">载入中……稍等2分钟……</p>
 	<script src="https://cdn.jsdelivr.net/gh/matepi/matepi.github.io/all.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/matepi/matepi.github.io/app.js"></script>
 </body>
