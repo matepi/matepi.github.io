@@ -24,11 +24,11 @@ input { font-family:NSimSun,Arial,Sans-serif; margin-top: 1px; margin-bottom: 1p
 <script>
 var testApp = angular.module('testApp', [])
 .controller('testController', ['$scope', '$location', function($scope, $location) {
-	$scope.chancePets = ['0.33', '0.33'];
+	$scope.chancePets = ['A=2', 'A=2','B=3'];
 	$scope.chancePets2 = [''];
 	$scope.chanceResult = "?.??";
 	$scope.chanceCount = 10000;
-	$scope.stoneCount = 450;
+	$scope.stoneCount = 50;
 	$scope.chanceBoxChange = function(index) {
 		var needCreate = true;
 		for (var i = index; i < $scope.chancePets.length; i++) {
@@ -55,43 +55,74 @@ var testApp = angular.module('testApp', [])
 	};
 	$scope.chancerows = [];
 	$scope.chancerun = function() {
+		function parseToChance (s, co) {
+			var namePart = s.split('=')[0];
+			var percPart = 0.01 * s.split('=')[1];
+			var acclow = 0.0;
+			for (var i = 0; i < co.length; i++) {
+				if (co[i].name == namePart) {
+					if (co[i].perc != percPart)
+						window.alert("name = " + namePart + "not same perc!");
+					++co[i].count;
+					return;
+				}
+				acclow += co[i].perc;
+			}
+			co[co.length] = {name : namePart, perc: percPart, low: acclow, up: (acclow+percPart), count: 1};
+		}
+		function isFulfilled(fa, co) {
+			if (co.length == 0)
+				return true;
+			if (fa.length < co.length)
+				return false;
+			for (var i = 0; i < co.length; i++) {
+				if (fa[i] < co[i].count)
+					return false;
+			}
+			return true;
+		}
 		var chance1 = [], chance2 = [];
-		for (var i = 0; i < $scope.chancePets.length; i++) {
+		for (var i = 0; i < $scope.chancePets.length; i++)
 			if ($scope.chancePets[i].length > 0)
-				chance1.push((+$scope.chancePets[i]) / 100.0);
-		}
-		for (var i = 0; i < $scope.chancePets2.length; i++) {
+				parseToChance($scope.chancePets[i], chance1);
+		for (var i = 0; i < $scope.chancePets2.length; i++)
 			if ($scope.chancePets2[i].length > 0)
-				chance2.push((+$scope.chancePets2[i]) / 100.0);
-		}
+				parseToChance($scope.chancePets2[i], chance2);
 		var success = 0;
 		nextChance:
 		for (var c = +$scope.chanceCount; c > 0; c--) {
 			var fulfilled1 = [], fulfilled2 = [];
 			for (var i = 0; i < chance1.length; i++)
-				fulfilled1.push(false);
+				fulfilled1.push(0);
 			for (var i = 0; i < chance2.length; i++)
-				fulfilled2.push(false);
+				fulfilled2.push(0);
+			var goChance2 = false;
 			nextTest:
-			for (var i = +$scope.stoneCount / 5; i > 0; i--) {
-				if ((chance2.length === 0 && fulfilled1[chance1.length - 1]) || fulfilled2[chance2.length - 1]) {
-					success++;
-					continue nextChance;
-				}
-				for (var j = 0, n = fulfilled1.length; j < n; j++) {
-					if (!fulfilled1[j]) {
-						fulfilled1[j] = (Math.random() < chance1[j]);
+			for (var ii = +$scope.stoneCount; ii > 0; ii--) {
+				if (!goChance2) {
+					var ran = Math.random();
+					for (var i = 0; i < chance1.length; i++) {
+						if (ran >= chance1[i].low && ran < chance1[i].up)
+							++fulfilled1[i];
+					}
+					if (isFulfilled(fulfilled1, chance1)) {
+						if (chance2.length == 0) {
+							success++;
+							continue nextChance;
+						}
+						goChance2 = true;
 						continue nextTest;
 					}
-				}
-				for (var j = 0, n = fulfilled2.length; j < n; j++) {
-					if (!fulfilled2[j]) {
-						fulfilled2[j] = (Math.random() < chance2[j]);
-						continue nextTest;
+				} else {
+					var ran = Math.random();
+					for (var i = 0; i < chance2.length; i++) {
+						if (ran >= chance2[i].low && ran < chance2[i].up)
+							++fulfilled2[i];
 					}
-				}
-				if ((chance2.length === 0 && fulfilled1[chance1.length - 1]) || fulfilled2[chance2.length - 1]) {
-					success++;
+					if (isFulfilled(fulfilled2, chance2)) {
+						success++;
+						continue nextChance;
+					}
 				}
 			}
 		}
@@ -113,13 +144,13 @@ var testApp = angular.module('testApp', [])
 </head>
 <body ng-app='testApp' ng-controller='testController'>
 	<form ng-submit="chancerun()">
-		金马桶　　<input type=text class="chancebox" ng-model="chancePets[$index]" ng-repeat="sPet in chancePets track by $index" ng-change="chanceBoxChange($index)" />
+		马桶１几率百分比　<input type=text class="chancebox" ng-model="chancePets[$index]" ng-repeat="sPet in chancePets track by $index" ng-change="chanceBoxChange($index)" />
 		<br />
-		其他马桶　<input type=text class="chancebox" ng-model="chancePets2[$index]" ng-repeat="sPet in chancePets2 track by $index" ng-change="chanceBoxChange2($index)" />
+		马桶２几率百分比　<input type=text class="chancebox" ng-model="chancePets2[$index]" ng-repeat="sPet in chancePets2 track by $index" ng-change="chanceBoxChange2($index)" />
 		<br />
-		石头数　　<input type=text class="chancebox" ng-model="stoneCount" />
+		每次尝试抽数　　　<input type=text class="chancebox" ng-model="stoneCount" />
 		<br />
-		试抽次数　<input type=text class="chancebox" ng-model="chanceCount" />
+		尝试次数　<input type=text class="chancebox" ng-model="chanceCount" />
 		<input type=submit value="试跑一把" />
 	</form>
 	《结果》　<input type=text class="chancebox" ng-model="chanceResult" ng-change="chanceResultChange()"/>%
