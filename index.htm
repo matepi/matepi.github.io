@@ -44,10 +44,6 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 		</tr></table>
 		<a ng-click="location.path(location.path()!='/combi'?'/combi':'')" href="javascript:void(0);">组队列表</a>
 		<a ng-click="location.path(location.path()!='/alias'?'/alias':'')" href="javascript:void(0);">别名列表</a>
-		<button ng-click="searchPets=['Saber','','','']">Saber</button>
-		<button ng-click="searchPets=['士郎','','','']">衛宮士郎</button>
-		<button ng-click="searchPets=['远坂凛','','','']">遠坂凛</button>
-		<button ng-click="searchPets=['桐人','','','']">桐人</button>
 		<button ng-click="searchPets=['竈門炭治郎','','','']">炭治郎</button>
 		<button ng-click="searchPets=['煉獄杏壽郎','','','']">炎柱</button>
 		<button ng-click="searchPets=['蒼潛艇羅亞魯奧古','','','']">水潜艇</button>
@@ -89,7 +85,9 @@ button { font-family:NSimSun,Arial,Sans-serif; margin: 1px 2px; border-radius: 5
 		<button ng-click="searchPets=['アンジェリーナ=クドウ=シールズ','','','']">光无一郎(天狼星安洁莉娜)</button>
 		<button ng-click="searchPets=['セルティストゥルルソン','学園都市最強アクセラレータ','','']">无头+一方队</button>
 		<button ng-click="searchPets=['ジノ＆トリスタン','','','']">吉诺(Geass杂色)队</button>
-		<button ng-click="searchPets=['ジノ＆トリスタン','拉克絲克萊因＆永恆','高達艾斯亞／能天使鋼彈','']">吉诺+拉克絲+能天使鋼彈</button>
+		<button ng-click="searchPets=['オメガモン','','','']">奥米加兽</button>
+		<button ng-click="searchPets=['オメガモン','オメガモン','オメガモン','']">3奥米加兽</button>
+		<button ng-click="searchPets=['オメガモン','オメガモン','オメガモン','城戸丈＆ゴマモン']">3奥米加兽+城戸丈＆哥玛兽</button>
 	</form>
 	<table ng-show="location.path()=='/alias'">
 		<thead><tr><th style="width:90px">正名</th><th>别名</th></tr></thead>
